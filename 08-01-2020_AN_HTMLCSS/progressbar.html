@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bar</title>
+	<style type="text/css">
+		.outer-div{
+			border: 1px solid grey;
+			border-radius: 2px;
+		}
+
+		.inner-div{
+			color: black;
+			background: grey;
+			-webkit-animation-name: bar; /* Safari */
+			-webkit-animation-duration: 10s;
+			animation-name: bar;
+			animation-duration: 5s;
+		}
+
+		@keyframes bar {
+			from{ width: 20%; }
+			to{width: 100%}
+		}
+
+		@-webkit-keyframes{
+			from{ width: 20%; }
+			to{width: 100%}
+		}
+
+		div{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<h1>Progress Bar using CSS</h1>
+
+	<div class="outer-div">
+		<div class="inner-div" style="height: 30px; width: 20%"></div>
+	</div>
+
+</body>
+</html>
