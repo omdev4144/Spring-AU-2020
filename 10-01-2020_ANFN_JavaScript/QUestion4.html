@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Bootstrap-->
+	<script type="text/javascript">
+		array_random = ["Monty123","Johnty45","Bunty12","Ricky1","12Hussy","67John","Michel90","Barrack43","Bubalu"];
+
+		function initialize(){
+			var string_final_init = " ";
+			for(i=0; i < array_random.length; i++){
+				string_final_init = string_final_init + array_random[i] +"<br>";
+			}
+			document.getElementById("userid").innerHTML = string_final_init;
+		}
+
+		function mysearchFunction() {
+			var user_name = document.getElementById("usrNm").value;
+			var new_array;
+			var string_final_search = "";
+
+			function match(x){
+				re = new RegExp(user_name,'i');
+				if (re.test(x)==true){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+	
+			new_array = array_random.filter(match);
+
+			if (user_name.length == 0){
+				initialize();
+			}
+
+			for(i=0; i < new_array.length; i++){
+				string_final_search = string_final_search+new_array[i]+"<br>";
+			}
+
+			document.getElementById("userid").innerHTML = string_final_search;
+		
+		};
+
+		function mysortfunction() {
+			var user_name1 = document.getElementById("usrNm").value;
+			var string_random1 = document.getElementById("userid").innerHTML;
+			var sor_array;
+			var array_random1;
+			var string_final1 = "";
+
+			array_random1 = string_random1.split("<br>");	
+			sort_array1 = array_random1.sort();
+
+			for(i=0; i < sort_array1.length; i++){
+				string_final1 = string_final1+sort_array1[i]+"<br>";
+			}
+
+			document.getElementById("useridsrt").innerHTML = string_final1;
+
+			var name = document.getElementById("usNm").value;
+			var country = document.getElementById("conTry").value;
+			document.getElementById("resname").innerHTML = name;
+			document.getElementById("rescountry").innerHTML = country;
+		};
+		
+	</script>
+	<style type="text/css">
+		.row1{
+			margin: auto;
+			width: 50%;
+			border: 3px solid grey;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		input[type=text]{
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+		}
+	</style>
+</head>
+<body onload="initialize()">
+	<div class="container" style="padding: 5%">
+		<div class="row1 container">
+			<form>
+				<h3>Question 4</h3>
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" name="username" id="usNm">
+				</div><!-- form-group ends -->
+				<div class="form-group">
+					<select name="country" id="conTry">
+					  <option value="India">India</option>
+					  <option value="Pakistan">Pakistan</option>
+					  <option value="America">America</option>
+					  <option value="Australia">Australia</option>
+					</select>
+				</div><!-- form-group ends -->
+				<div class="form-group">
+					<label>User Name</label>
+					<input type="text" name="usrNm" id="usrNm" onkeyup="mysearchFunction()" placeholder="Search for names..">
+				</div><!-- form-group ends -->
+				<div class="form-group" style="color: grey; width: 50px;" id="userid">
+					
+				</div>
+				<button type="button" class="btn btn-primary" onclick="mysortfunction()">sort</button>
+				<div>
+					<label style="color: red" id="warning">
+				</div>
+				<div class="form-group" style="color: grey; width: 50px;" id="useridsrt">
+				</div>
+
+				<div id="resname">
+				</div>
+				<div id="rescountry">
+				</div>
+			</form>
+		</div><!-- row ends -->
+	</div><!-- div conainer -->
+</body>
+</html>

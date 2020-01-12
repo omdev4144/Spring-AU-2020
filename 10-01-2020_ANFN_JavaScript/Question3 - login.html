@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Bootstrap-->
+	<script type="text/javascript">
+
+		function myfunction() {
+			var user = document.getElementById("usNm").value;
+			var password1 = document.getElementById("firPass").value;
+			var password2_cnf = document.getElementById("confirPass").value;
+
+			var string_warn = "";
+			var flag = 0;
+
+			if (password1.length < 8) {
+				string_warn += "Password must be at least 8 character long\n\n";
+				flag = 1;
+			}
+
+			reexp1 = /abc/;
+			reexp2 = new RegExp("[$*@]");
+			reexp3 = /[a-z]/;
+			reexp4 = /[A-Z]/;
+
+			if (reexp1.test(password1) != true){
+				string_warn += "missing abc in it \n\n"
+				flag = 1;
+			}
+
+			if (reexp2.test(password1) != true){
+				string_warn += "missing special character \n\n";
+				flag = 1;
+			}
+
+			if (reexp3.test(password1) != true){
+				string_warn += "missing lower case \n\n";
+				flag = 1;
+			}
+
+			if (reexp4.test(password1) != true){
+				string_warn += "missing upper case\n\n";
+				flag = 1;
+			}
+
+			document.getElementById("warning").innerHTML = string_warn;
+
+			if (flag == 0) {
+				if (password1 != password2_cnf) {
+					string_warn += "Password doesn't Matched";
+				}
+				else{
+					console.log("The Password Entered is: ");
+					console.log(password1);
+					console.log("The Confirm Password is: ");
+					console.log(password2_cnf);
+					console.log("The User Name is: ");
+					console.log(user);
+					console.log("Welcome User"+user);
+					alert("Welcome user "+user);
+				}
+			}
+			
+
+			document.getElementById("warning").innerHTML = string_warn;
+
+		};
+		
+	</script>
+	<style type="text/css">
+		.row1{
+			margin: auto;
+			width: 50%;
+			border: 3px solid grey;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		input[type=text], input[type=password] {
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" style="padding: 5%">
+		<div class="row1 container">
+			<form>
+				<h3>Login</h3>
+				<div class="form-group">
+					<label>UserName</label>
+					<input type="text" name="username" id="usNm">
+				</div><!-- form-group ends -->
+				<div class="form-group">
+					<label>Password</label>
+					<input type="Password" name="pass" id="firPass">
+				</div><!-- form-group ends -->
+				<div class="form-group">
+					<label>Confirm Password</label>
+					<input type="Password" name="cnfpass" id="confirPass">
+				</div><!-- form-group ends -->
+				<button type="button" class="btn btn-primary" onclick="myfunction()">Submit</button>
+				<div>
+					<label style="color: red" id="warning">
+				</div>
+			</form>
+		</div><!-- row ends -->
+	</div><!-- div conainer -->
+</body>
+</html>
