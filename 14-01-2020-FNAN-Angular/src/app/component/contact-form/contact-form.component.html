@@ -1,0 +1,31 @@
+<form [formGroup] = "userprofileForm" (ngSubmit)="onSubmit()">
+    <h2>
+        Exercise
+    </h2>
+    <div class="form-group" >
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" class="form-control" formControlName="firstname_control">
+    </div>
+    
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" class="form-control" formControlName="lastname_control">
+    </div>
+
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input id="Age" type="text" class="form-control" formControlName="age_control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">email</label>
+        <input id="email" type="text" class="form-control" formControlName="email_control">
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea id="comment" cols="30" rows="10" class="form-control" formControlName="comment_control"></textarea>
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>

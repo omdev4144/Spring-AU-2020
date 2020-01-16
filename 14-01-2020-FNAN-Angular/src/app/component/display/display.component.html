@@ -1,0 +1,19 @@
+<p>display works!</p>
+<table>
+    <thead>
+        <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>email</td>
+        <td>Comment</td></tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let value of rec_array">
+        <td>{{ value.firstname_control }}</td>
+        <td>{{ value.lastname_control }}</td>
+        <td>{{ value.age_control }}</td>
+        <td>{{ value.email_control }}</td>
+        <td>{{ value.comment_control }}</td>
+    </tr></tbody>
+</table>
